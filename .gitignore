@@ -32,4 +32,25 @@ htmlcov/
 
 # Temporary files
 *.tmp
-temp/%                                                                                                                                      
+temp/
+
+# OS
+.DS_Store
+
+# Environment / secrets
+.env.*.local
+
+# IDE
+.idea/
+*.iml
+
+# Java / Maven
+target/
+*.class
+*.jar
+*.war
+.mvn/wrapper/maven-wrapper.jar
+
+# H2 database files
+src/backend/data/
+
