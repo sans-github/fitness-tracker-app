@@ -1,0 +1,35 @@
+.DS_Store
+
+# Python-generated files
+__pycache__/
+.mypy_cache/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+eggs/
+.eggs/
+
+# Logs
+logs/
+*.log
+
+# Claude local settings
+.claude/settings.local.json
+
+# Claude local CLAUDE.md
+.claude.local.md
+
+# Environment variables
+.env
+.env.local
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
+temp/%                                                                                                                                      
