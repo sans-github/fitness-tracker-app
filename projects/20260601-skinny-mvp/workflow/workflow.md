@@ -316,8 +316,8 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
   - [x] **QA:** author Test Plan (`generated-docs/qa/test-plan.md`) — done when: file exists with `Status: Draft` header
   - [x] 💾 **EM:** review and approve Test Plan → [test-plan.md](../generated-docs/qa/test-plan.md) — done when: `Status: Approved — EM` set in file
 
-- [ ] **QA Issues List**
-  - [ ] 💾 **EM:** produce QA Issues List (`generated-docs/qa/qa-issues-list.md`) covering AC-1 E2E, AC-2 E2E, API-level tests, negative cases — done when: `Status: Approved — EM` set in file; QA creates GH issues and begins implementation
+- [x] **QA Issues List**
+  - [x] 💾 **EM:** produce QA Issues List → [qa-issues-list.md](../generated-docs/qa/qa-issues-list.md) — done when: `Status: Approved — EM` set in file; QA creates GH issues and begins implementation
 
 - [ ] **Test Execution**
   - [ ] **QA:** create GitHub issues from approved QA Issues List — done when: all issues exist in GitHub with correct labels
