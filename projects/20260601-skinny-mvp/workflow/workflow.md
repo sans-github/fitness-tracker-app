@@ -301,10 +301,10 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 
 - [-] **macOS Development** — SKIPPED (no macOS app)
 
-- [ ] **Local Run Guide**
-  - [ ] 💾 **BE:** produce `generated-docs/ops/local-run-guide.md` — done when: file exists covering prerequisites, start commands, expected URLs, H2 data file location, DB reset steps
+- [x] **Local Run Guide**
+  - [x] 💾 **BE:** produce `generated-docs/ops/local-run-guide.md` → [local-run-guide.md](../generated-docs/ops/local-run-guide.md) — done when: file exists
 
-- [ ] **Infrastructure** *(local only — no provisioning)*
+- [x] **Infrastructure** *(local only — no provisioning)*
   - [-] 👤💾 **HUMAN:** review and approve deployment plan — SKIPPED (gate skipped at config)
   - [-] **QA + DEVOPS:** smoke test loop — SKIPPED (deployment target is local)
 
