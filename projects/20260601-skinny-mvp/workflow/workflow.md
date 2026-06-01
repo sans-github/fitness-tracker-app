@@ -267,9 +267,9 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 
 - [-] **Swift Detailed Design** — SKIPPED (no macOS app)
 
-- [ ] **API Contract**
-  - [ ] **BE + FE:** jointly author API Contract (`generated-docs/contracts/api-contract.md`), align on request/response shapes, validation, error format, CORS — done when: file exists with `Status: Draft` and both agents confirmed alignment
-  - [ ] 💾 **EM:** review and approve API Contract — done when: `Status: Approved — EM` set in file
+- [x] **API Contract**
+  - [x] **BE + FE:** jointly author API Contract (`generated-docs/contracts/api-contract.md`), align on request/response shapes, validation, error format, CORS — done when: file exists with `Status: Draft` and both agents confirmed alignment
+  - [x] 💾 **EM:** review and approve API Contract → [api-contract.md](../generated-docs/contracts/api-contract.md) — done when: `Status: Approved — EM` set in file
 
 - [ ] **BE Issues List**
   - [ ] 💾 **EM:** produce BE Issues List (`generated-docs/architecture/be-issues-list.md`) — done when: `Status: Approved — EM` set in file; BE creates GH issues and begins implementation
