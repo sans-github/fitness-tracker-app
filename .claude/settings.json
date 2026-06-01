@@ -1,0 +1,41 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(awk:*)",
+      "Bash(bash .claude/skills/**/*.sh)",
+      "Bash(bash .claude/skills/**/*.sh *)",
+      "Bash(cat:*)",
+      "Bash(chmod +x:*)",
+      "Bash(CLAUDE.md:*)",
+      "Bash(command -v pandoc)",
+      "Bash(cp:*)",
+      "Bash(curl:*)",
+      "Bash(echo:*)",
+      "Bash(git:*)",
+      "Bash(head:*)",
+      "Bash(ls:*)",
+      "Bash(mkdir:*)",
+      "Bash(mv:*)",
+      "Bash(open:*)",
+      "Bash(pbcopy:*)",
+      "Bash(pbpaste:*)",
+      "Bash(python3:*)",
+      "Bash(README.md:*)",
+      "Bash(sed:*)",
+      "Bash(tail:*)",
+      "Bash(test:*)",
+      "Bash(touch:*)",
+      "Bash(uv run:*)",
+      "Edit(.claude/**)",
+      "Edit(projects/**)",
+      "Read(.claude/**)",
+      "Read(projects/**)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:skills.sh)",
+      "Write(.claude/**)",
+      "Write(projects/**)"
+    ]
+  }
+}
