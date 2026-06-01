@@ -193,3 +193,24 @@ tests/
     validation.spec.ts         # E2E-08 through E2E-14 (AC-3)
     history.spec.ts            # E2E-15 through E2E-18, EDGE-06 (AC-4)
 ```
+
+---
+
+## Results
+
+Run date: 2026-06-01
+
+All 40 tests pass: 21 API-level (api project) + 19 E2E (e2e project). Zero skipped, zero failures.
+
+| Suite | Tests | Result |
+|-------|-------|--------|
+| API (workout-logs.api.spec.ts) | 21 | All pass |
+| E2E render.spec.ts | 3 | All pass |
+| E2E log-exercise.spec.ts | 4 | All pass |
+| E2E validation.spec.ts | 7 | All pass |
+| E2E history.spec.ts | 5 | All pass |
+
+All ACs covered. No tests skipped without documented reason.
+
+Status: Approved — EM
+Approved: 2026-06-01

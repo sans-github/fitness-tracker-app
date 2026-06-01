@@ -319,14 +319,14 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 - [x] **QA Issues List**
   - [x] 💾 **EM:** produce QA Issues List → [qa-issues-list.md](../generated-docs/qa/qa-issues-list.md) — done when: `Status: Approved — EM` set in file; QA creates GH issues and begins implementation
 
-- [ ] **Test Execution**
-  - [ ] **QA:** create GitHub issues from approved QA Issues List — done when: all issues exist in GitHub with correct labels
-  - [ ] **QA:** implement Playwright automation suite (API-level + E2E) covering all items in QA Issues List — done when: `npx playwright test` exits 0 against locally running BE and FE
-  - [ ] **QA + BE:** resolve backend test blockers — done when: no open QA-blocking BE issues remain
-  - [ ] **QA + FE:** resolve frontend test blockers — done when: no open QA-blocking FE issues remain
+- [x] **Test Execution**
+  - [-] **QA:** create GitHub issues from approved QA Issues List — SKIPPED (local dev, no GitHub repo wired)
+  - [x] **QA:** implement Playwright automation suite (API-level + E2E) covering all items in QA Issues List — done when: `npx playwright test` exits 0 against locally running BE and FE
+  - [x] **QA + BE:** resolve backend test blockers — done when: no open QA-blocking BE issues remain
+  - [x] **QA + FE:** resolve frontend test blockers — done when: no open QA-blocking FE issues remain
   - [-] **QA:** implement automated tests against Swift Engineer output — SKIPPED (no macOS app)
   - [-] **QA + SWIFT ENGINEER:** resolve macOS test blockers — SKIPPED (no macOS app)
-  - [ ] 💾 **EM:** review and approve test results — done when: all ACs covered, no skipped tests without documented reason, `Status: Approved — EM` appended to test-plan.md results section
+  - [x] 💾 **EM:** review and approve test results → [test-plan.md](../generated-docs/qa/test-plan.md) — done when: all ACs covered, no skipped tests without documented reason, `Status: Approved — EM` appended to test-plan.md results section
 
 ---
 
