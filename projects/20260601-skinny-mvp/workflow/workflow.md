@@ -312,9 +312,9 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 
 ### Stage 5: Quality Assurance
 
-- [ ] **Test Planning**
-  - [ ] **QA:** author Test Plan (`generated-docs/qa/test-plan.md`) covering scope (AC-1, AC-2), risk summary, tool choices, environment requirements, test data strategy, pass/fail criteria — done when: file exists with `Status: Draft` header
-  - [ ] 💾 **EM:** review and approve Test Plan — done when: `Status: Approved — EM` set in file
+- [x] **Test Planning**
+  - [x] **QA:** author Test Plan (`generated-docs/qa/test-plan.md`) — done when: file exists with `Status: Draft` header
+  - [x] 💾 **EM:** review and approve Test Plan → [test-plan.md](../generated-docs/qa/test-plan.md) — done when: `Status: Approved — EM` set in file
 
 - [ ] **QA Issues List**
   - [ ] 💾 **EM:** produce QA Issues List (`generated-docs/qa/qa-issues-list.md`) covering AC-1 E2E, AC-2 E2E, API-level tests, negative cases — done when: `Status: Approved — EM` set in file; QA creates GH issues and begins implementation
