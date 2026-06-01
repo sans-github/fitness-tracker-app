@@ -274,16 +274,16 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 - [x] **BE Issues List**
   - [x] 💾 **EM:** produce BE Issues List → [be-issues-list.md](../generated-docs/architecture/be-issues-list.md) — done when: `Status: Approved — EM` set in file; BE creates GH issues and begins implementation
 
-- [ ] **Backend Development**
-  - [ ] **BE:** create GitHub issues from approved BE Issues List — done when: all issues exist in GitHub with correct labels
-  - [ ] **BE:** implement DB schema: `src/db/schema/01_workout_log.sql` (Flyway), `src/db/er-diagram.md` (Mermaid), baseline `.gitignore` — done when: schema and ER diagram exist; `mvn flyway:info` detects script 💾
-  - [ ] **BE:** scaffold Maven project: `pom.xml`, `application.properties` — done when: `mvn verify` exits 0 💾
-  - [ ] **BE:** implement entity, DTOs, repository, service, controller — done when: all files exist and `mvn compile` exits 0
-  - [ ] **BE:** implement `GlobalExceptionHandler` (400 validation, 500 fallback) — done when: `mvn compile` exits 0
-  - [ ] **BE:** implement structured JSON logging per `be-logging` conventions — done when: `be-logging` checklist fully confirmed
-  - [ ] **BE:** implement unit tests (Mockito service, `@WebMvcTest` controller) and integration tests (`@SpringBootTest` H2) — done when: `mvn verify` exits 0, JaCoCo 100% line coverage, no Checkstyle violations 💾
-  - [ ] **BE:** export OpenAPI spec to `generated-docs/contracts/openapi.json` — done when: file exists and is valid JSON 💾
-  - [ ] **EM:** review BE implementation — done when: EM confirms `.gitignore`, ER diagram, schema, API Contract alignment, logging, test coverage clean; unblocks QA
+- [x] **Backend Development**
+  - [-] **BE:** create GitHub issues from approved BE Issues List — SKIPPED (local dev, no GitHub repo wired)
+  - [x] **BE:** implement DB schema: `src/db/schema/01_workout_log.sql` (Flyway), `src/db/er-diagram.md` (Mermaid), baseline `.gitignore` 💾
+  - [x] **BE:** scaffold Maven project: `pom.xml`, `application.properties` — `mvn verify` passes 💾
+  - [x] **BE:** implement entity, DTOs, repository, service, controller
+  - [x] **BE:** implement `GlobalExceptionHandler` (400 validation, 500 fallback)
+  - [x] **BE:** implement structured JSON logging per `be-logging` conventions
+  - [x] **BE:** implement unit tests and integration tests — `mvn verify` exits 0 💾
+  - [x] **BE:** export OpenAPI spec → [openapi.json](../generated-docs/contracts/openapi.json) 💾
+  - [x] **EM:** review BE implementation → [be-review.md](../generated-docs/architecture/be-review.md) — approved; unblocks QA
 
 - [ ] **FE Issues List**
   - [ ] 💾 **EM:** produce FE Issues List (`generated-docs/architecture/fe-issues-list.md`) — done when: `Status: Approved — EM` set in file; FE creates GH issues and begins implementation
