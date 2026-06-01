@@ -1,7 +1,6 @@
 package com.fitnessapp.workoutlog;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.UUID;
 
 /** Outbound DTO returned to API clients. Internal fields are not included. */
@@ -12,7 +11,7 @@ public class WorkoutLogResponse {
   private BigDecimal weightLbs;
   private Integer sets;
   private Integer reps;
-  private LocalDateTime createdAt;
+  private String createdAt;
 
   public UUID getId() {
     return id;
@@ -54,11 +53,11 @@ public class WorkoutLogResponse {
     this.reps = reps;
   }
 
-  public LocalDateTime getCreatedAt() {
+  public String getCreatedAt() {
     return createdAt;
   }
 
-  public void setCreatedAt(LocalDateTime createdAt) {
+  public void setCreatedAt(String createdAt) {
     this.createdAt = createdAt;
   }
 }

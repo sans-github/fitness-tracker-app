@@ -10,7 +10,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fitnessapp.GlobalExceptionHandler;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
@@ -45,7 +44,7 @@ class WorkoutLogControllerTest {
     r.setWeightLbs(new BigDecimal("100.00"));
     r.setSets(3);
     r.setReps(5);
-    r.setCreatedAt(LocalDateTime.now());
+    r.setCreatedAt("2026-06-01T10:00:00Z");
     return r;
   }
 

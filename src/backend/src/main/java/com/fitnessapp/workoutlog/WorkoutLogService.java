@@ -1,6 +1,8 @@
 package com.fitnessapp.workoutlog;
 
 import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
@@ -54,7 +56,9 @@ public class WorkoutLogService {
     response.setWeightLbs(entity.getWeightLbs());
     response.setSets(entity.getSets());
     response.setReps(entity.getReps());
-    response.setCreatedAt(entity.getCreatedAt());
+    response.setCreatedAt(entity.getCreatedAt()
+        .atOffset(ZoneOffset.UTC)
+        .format(DateTimeFormatter.ISO_OFFSET_DATE_TIME));
     return response;
   }
 }
