@@ -257,9 +257,9 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 
 ### Stage 4: Engineering
 
-- [ ] **BE Detailed Design**
-  - [ ] **BE:** author BE Detailed Design (`generated-docs/architecture/be-detailed-design.md`) — done when: file exists with `Status: Draft` header
-  - [ ] 💾 **EM:** review and approve BE Detailed Design — done when: `Status: Approved — EM` set in file
+- [x] **BE Detailed Design**
+  - [x] **BE:** author BE Detailed Design (`generated-docs/architecture/be-detailed-design.md`) — done when: file exists with `Status: Draft` header
+  - [x] 💾 **EM:** review and approve BE Detailed Design → [be-detailed-design.md](../generated-docs/architecture/be-detailed-design.md) — done when: `Status: Approved — EM` set in file
 
 - [ ] **FE Detailed Design**
   - [ ] **FE:** author FE Detailed Design (`generated-docs/architecture/fe-detailed-design.md`) — done when: file exists with `Status: Draft` header
