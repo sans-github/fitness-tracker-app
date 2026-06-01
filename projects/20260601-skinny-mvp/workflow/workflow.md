@@ -227,9 +227,9 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 
 ### Stage 2: Design
 
-- [ ] **UI / UX Design**
-  - [ ] **DESIGNER:** produce mocks → [Mocks]
-  - [ ] 👤💾 **HUMAN:** review and approve mocks
+- [x] **UI / UX Design**
+  - [x] **DESIGNER:** produce mocks → [design/01-empty-state.html](../generated-docs/design/01-empty-state.html), [design/02-populated-state.html](../generated-docs/design/02-populated-state.html)
+  - [x] 👤💾 **HUMAN:** review and approve mocks
 
 ---
 
