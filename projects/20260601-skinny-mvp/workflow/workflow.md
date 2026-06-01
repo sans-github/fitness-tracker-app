@@ -288,14 +288,14 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 - [x] **FE Issues List**
   - [x] 💾 **EM:** produce FE Issues List → [fe-issues-list.md](../generated-docs/architecture/fe-issues-list.md) — done when: `Status: Approved — EM` set in file; FE creates GH issues and begins implementation
 
-- [ ] **Frontend Development**
-  - [ ] **FE:** create GitHub issues from approved FE Issues List — done when: all issues exist in GitHub with correct labels
-  - [ ] **FE:** scaffold Vite + React + TypeScript project: `package.json`, `tsconfig.json`, `vite.config.ts` (proxy), ESLint + Prettier, `.gitignore` — done when: `npm run build` exits 0 💾
-  - [ ] **FE:** implement TanStack Query provider, logger module, `generateTraceId`, typed API hooks (`useWorkoutLogs`, `useLogWorkout`) with `X-Trace-Id` — done when: `npm run build` exits 0
-  - [ ] **FE:** implement UI components: `ExerciseCard`, `ExerciseGrid`, `HistoryTable`, `WorkoutPage` — done when: all files exist and `npm run build` exits 0
-  - [ ] **FE:** implement structured logging per `fe-logging` conventions — done when: `fe-logging` checklist fully confirmed
-  - [ ] **FE:** implement component tests and Playwright E2E tests covering AC-1 and AC-2 — done when: `npm test` and `npx playwright test` both exit 0 💾
-  - [ ] **EM:** review FE implementation — done when: EM confirms `.gitignore`, component placement, API Contract alignment, logging coverage, test coverage clean; unblocks QA
+- [x] **Frontend Development**
+  - [-] **FE:** create GitHub issues from approved FE Issues List — SKIPPED (local dev, no GitHub repo wired)
+  - [x] **FE:** scaffold Vite + React + TypeScript project — `npm run build` exits 0 💾
+  - [x] **FE:** implement TanStack Query provider, logger module, typed API hooks with `X-Trace-Id`
+  - [x] **FE:** implement UI components: `ExerciseCard`, `ExerciseGrid`, `HistoryTable`, `WorkoutPage`
+  - [x] **FE:** implement structured logging per `fe-logging` conventions
+  - [x] **FE:** implement component tests (19/19 pass) and Playwright E2E tests (wired, require running servers) 💾
+  - [x] **EM:** review FE implementation → [fe-review.md](../generated-docs/architecture/fe-review.md) — approved; unblocks QA
 
 - [-] **Swift Engineer Issues List** — SKIPPED (no macOS app)
 

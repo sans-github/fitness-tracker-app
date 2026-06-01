@@ -54,3 +54,11 @@ target/
 # H2 database files
 src/backend/data/
 
+# Frontend / Node
+node_modules/
+dist/
+.next/
+.vite/
+playwright-report/
+test-results/
+
