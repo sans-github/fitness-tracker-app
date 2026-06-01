@@ -348,6 +348,6 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 
 ### Stage 8: Release
 
-- [ ] **Phase Sign-off**
-  - [ ] **EM:** verify all artifacts complete and approved, confirm deployment target is ready
+- [x] **Phase Sign-off**
+  - [x] **EM:** verify all artifacts complete and approved, confirm deployment target is ready — all artifacts carry `Status: Approved — EM`; local H2 DB running; 40/40 tests pass
   - [-] 👤💾 **HUMAN:** review and approve release readiness — SKIPPED (gate skipped at config)
