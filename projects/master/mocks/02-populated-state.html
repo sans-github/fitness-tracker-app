@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fitness Tracker — Populated State</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  /* ── Design tokens (light mode) ── */
+  :root {
+    --color-primary: #2A6872;
+    --color-primary-hover: #1A4E58;
+    --color-primary-subtle: #E4EFF0;
+    --color-secondary: #4A7880;
+    --color-neutral-900: #161E20;
+    --color-neutral-600: #526870;
+    --color-neutral-300: #B8CACF;
+    --color-neutral-100: #EAF0F2;
+    --color-neutral-0: #FFFFFF;
+    --color-success: #2A6A52;
+    --color-success-subtle: #E3F0EB;
+    --color-error: #783040;
+    --color-surface: #F5F8F9;
+
+    --radius-sm: 4px;
+    --radius-md: 7px;
+    --radius-lg: 12px;
+
+    --shadow-sm: 0 1px 3px rgba(22,30,32,0.07);
+    --shadow-md: 0 4px 12px rgba(22,30,32,0.09);
+
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+    --space-8: 32px;
+    --space-12: 48px;
+    --space-16: 64px;
+
+    --font: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: var(--font);
+    background: var(--color-surface);
+    color: var(--color-neutral-900);
+    font-size: 15px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* ── Layout ── */
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-6);
+  }
+
+  /* ── Header ── */
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .page-title {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--color-neutral-900);
+  }
+
+  .page-subtitle {
+    font-size: 15px;
+    color: var(--color-neutral-600);
+    margin-top: var(--space-1);
+  }
+
+  /* ── Section heading ── */
+  .section-heading {
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--color-neutral-900);
+    margin-bottom: var(--space-4);
+  }
+
+  /* ── Exercise cards grid ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-4);
+    margin-bottom: var(--space-12);
+  }
+
+  .exercise-card {
+    background: var(--color-neutral-0);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    padding: var(--space-6);
+  }
+
+  /* Success flash — just-logged card */
+  .exercise-card.just-logged {
+    border: 1.5px solid var(--color-success);
+  }
+
+  .exercise-card.just-logged .exercise-name::after {
+    content: "Logged";
+    display: inline-block;
+    margin-left: var(--space-2);
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    color: var(--color-success);
+    background: var(--color-success-subtle);
+    border-radius: var(--radius-sm);
+    padding: 1px var(--space-2);
+    vertical-align: middle;
+  }
+
+  .exercise-name {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-neutral-900);
+    margin-bottom: var(--space-4);
+  }
+
+  /* ── Input group ── */
+  .input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+  }
+
+  .field-label {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    color: var(--color-neutral-600);
+  }
+
+  .field-input {
+    font-family: var(--font);
+    font-size: 15px;
+    color: var(--color-neutral-900);
+    background: var(--color-neutral-0);
+    border: 1.5px solid var(--color-neutral-300);
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-3);
+    width: 100%;
+    outline: none;
+    transition: border-color 0.15s;
+  }
+
+  .field-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 2px var(--color-primary-subtle);
+  }
+
+  .field-input::placeholder {
+    color: var(--color-neutral-300);
+  }
+
+  /* Error state */
+  .field-input.is-error { border-color: var(--color-error); }
+  .field-error {
+    font-size: 12px;
+    color: var(--color-error);
+    line-height: 1.4;
+  }
+
+  /* Disabled/loading state */
+  .field-input:disabled {
+    background: var(--color-neutral-100);
+    color: var(--color-neutral-300);
+    cursor: not-allowed;
+  }
+
+  /* ── Log button ── */
+  .btn-log {
+    font-family: var(--font);
+    font-size: 15px;
+    font-weight: 600;
+    color: #FFFFFF;
+    background: var(--color-primary);
+    border: none;
+    border-radius: var(--radius-md);
+    padding: var(--space-2) var(--space-6);
+    cursor: pointer;
+    width: 100%;
+    transition: background 0.15s;
+  }
+
+  .btn-log:hover { background: var(--color-primary-hover); }
+
+  .btn-log:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  .btn-log:active {
+    background: var(--color-primary-hover);
+    box-shadow: none;
+  }
+
+  .btn-log:disabled {
+    background: var(--color-neutral-100);
+    color: var(--color-neutral-300);
+    cursor: not-allowed;
+  }
+
+  /* Loading button state */
+  .btn-log.is-loading {
+    background: var(--color-neutral-100);
+    color: var(--color-neutral-600);
+    cursor: not-allowed;
+  }
+
+  /* ── History section ── */
+  .history-section {
+    background: var(--color-neutral-0);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .history-header {
+    padding: var(--space-4) var(--space-6);
+    border-bottom: 1.5px solid var(--color-neutral-100);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .history-title {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--color-neutral-900);
+  }
+
+  .history-count {
+    font-size: 13px;
+    color: var(--color-neutral-600);
+    background: var(--color-neutral-100);
+    border-radius: var(--radius-full, 9999px);
+    padding: 2px var(--space-3);
+  }
+
+  /* ── Table ── */
+  .history-table-wrap {
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  thead th {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    color: var(--color-neutral-600);
+    background: var(--color-neutral-100);
+    padding: var(--space-3) var(--space-6);
+    text-align: left;
+    white-space: nowrap;
+  }
+
+  tbody tr {
+    border-top: 1px solid var(--color-neutral-100);
+    transition: background 0.1s;
+  }
+
+  tbody tr:first-child {
+    border-top: none;
+  }
+
+  tbody tr:hover {
+    background: var(--color-primary-subtle);
+  }
+
+  /* Highlight the newest row */
+  tbody tr.is-new {
+    background: var(--color-success-subtle);
+  }
+
+  tbody tr.is-new:hover {
+    background: #d3ece2;
+  }
+
+  tbody td {
+    padding: var(--space-3) var(--space-6);
+    font-size: 15px;
+    color: var(--color-neutral-900);
+    white-space: nowrap;
+  }
+
+  td.exercise-cell {
+    font-weight: 500;
+  }
+
+  td.meta-cell {
+    color: var(--color-neutral-600);
+    font-size: 13px;
+  }
+
+  /* ── Annotation ── */
+  .mock-annotation {
+    margin-top: var(--space-8);
+    background: var(--color-primary-subtle);
+    border-left: 3px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: var(--space-3) var(--space-4);
+    font-size: 13px;
+    color: var(--color-secondary);
+  }
+
+  .mock-annotation strong {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .mock-annotation ul {
+    margin-top: var(--space-2);
+    padding-left: var(--space-4);
+  }
+
+  .mock-annotation li {
+    margin-bottom: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Page header -->
+  <header class="page-header">
+    <h1 class="page-title">Workout tracker</h1>
+    <p class="page-subtitle">Log your sets and track progress over time.</p>
+  </header>
+
+  <!-- Logging cards -->
+  <h2 class="section-heading">Log a set</h2>
+  <div class="cards-grid">
+
+    <!-- Squat — just logged, success badge shown -->
+    <div class="exercise-card just-logged">
+      <div class="exercise-name">Squat</div>
+      <div class="input-row">
+        <div class="field">
+          <label class="field-label" for="squat-weight">Weight (lbs)</label>
+          <input class="field-input" id="squat-weight" type="number" value="185" min="0.01" step="0.01">
+        </div>
+        <div class="field">
+          <label class="field-label" for="squat-sets">Sets</label>
+          <input class="field-input" id="squat-sets" type="number" value="3" min="1" step="1">
+        </div>
+        <div class="field">
+          <label class="field-label" for="squat-reps">Reps</label>
+          <input class="field-input" id="squat-reps" type="number" value="5" min="1" step="1">
+        </div>
+      </div>
+      <button class="btn-log" type="button">Log</button>
+    </div>
+
+    <!-- Bench Press — loading state -->
+    <div class="exercise-card">
+      <div class="exercise-name">Bench press</div>
+      <div class="input-row">
+        <div class="field">
+          <label class="field-label" for="bench-weight">Weight (lbs)</label>
+          <input class="field-input" id="bench-weight" type="number" value="135" disabled>
+        </div>
+        <div class="field">
+          <label class="field-label" for="bench-sets">Sets</label>
+          <input class="field-input" id="bench-sets" type="number" value="3" disabled>
+        </div>
+        <div class="field">
+          <label class="field-label" for="bench-reps">Reps</label>
+          <input class="field-input" id="bench-reps" type="number" value="8" disabled>
+        </div>
+      </div>
+      <button class="btn-log is-loading" type="button" disabled>Saving...</button>
+    </div>
+
+    <!-- Deadlift -->
+    <div class="exercise-card">
+      <div class="exercise-name">Deadlift</div>
+      <div class="input-row">
+        <div class="field">
+          <label class="field-label" for="dl-weight">Weight (lbs)</label>
+          <input class="field-input" id="dl-weight" type="number" min="0.01" step="0.01" placeholder="225">
+        </div>
+        <div class="field">
+          <label class="field-label" for="dl-sets">Sets</label>
+          <input class="field-input" id="dl-sets" type="number" min="1" step="1" placeholder="1">
+        </div>
+        <div class="field">
+          <label class="field-label" for="dl-reps">Reps</label>
+          <input class="field-input" id="dl-reps" type="number" min="1" step="1" placeholder="5">
+        </div>
+      </div>
+      <button class="btn-log" type="button">Log</button>
+    </div>
+
+    <!-- Overhead Press — validation error on reps -->
+    <div class="exercise-card">
+      <div class="exercise-name">Overhead press</div>
+      <div class="input-row">
+        <div class="field">
+          <label class="field-label" for="ohp-weight">Weight (lbs)</label>
+          <input class="field-input" id="ohp-weight" type="number" value="95" min="0.01" step="0.01">
+        </div>
+        <div class="field">
+          <label class="field-label" for="ohp-sets">Sets</label>
+          <input class="field-input" id="ohp-sets" type="number" value="3" min="1" step="1">
+        </div>
+        <div class="field">
+          <label class="field-label" for="ohp-reps">Reps</label>
+          <input class="field-input is-error" id="ohp-reps" type="number" value="0" min="1" step="1" aria-describedby="ohp-reps-err">
+          <span class="field-error" id="ohp-reps-err">Must be at least 1</span>
+        </div>
+      </div>
+      <button class="btn-log" type="button">Log</button>
+    </div>
+
+    <!-- Bent-over Row -->
+    <div class="exercise-card">
+      <div class="exercise-name">Bent-over row</div>
+      <div class="input-row">
+        <div class="field">
+          <label class="field-label" for="row-weight">Weight (lbs)</label>
+          <input class="field-input" id="row-weight" type="number" min="0.01" step="0.01" placeholder="115">
+        </div>
+        <div class="field">
+          <label class="field-label" for="row-sets">Sets</label>
+          <input class="field-input" id="row-sets" type="number" min="1" step="1" placeholder="3">
+        </div>
+        <div class="field">
+          <label class="field-label" for="row-reps">Reps</label>
+          <input class="field-input" id="row-reps" type="number" min="1" step="1" placeholder="5">
+        </div>
+      </div>
+      <button class="btn-log" type="button">Log</button>
+    </div>
+
+  </div>
+
+  <!-- History section -->
+  <div class="history-section">
+    <div class="history-header">
+      <span class="history-title">History</span>
+      <span class="history-count">8 sets</span>
+    </div>
+    <div class="history-table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Exercise</th>
+            <th>Weight (lbs)</th>
+            <th>Sets</th>
+            <th>Reps</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Newest first. First row highlighted as just-added. -->
+          <tr class="is-new">
+            <td class="meta-cell">Jun 1, 2026 · 9:14 am</td>
+            <td class="exercise-cell">Squat</td>
+            <td>185</td>
+            <td>3</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td class="meta-cell">Jun 1, 2026 · 9:08 am</td>
+            <td class="exercise-cell">Bench press</td>
+            <td>135</td>
+            <td>3</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td class="meta-cell">May 30, 2026 · 8:52 am</td>
+            <td class="exercise-cell">Deadlift</td>
+            <td>225</td>
+            <td>1</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td class="meta-cell">May 30, 2026 · 8:45 am</td>
+            <td class="exercise-cell">Squat</td>
+            <td>175</td>
+            <td>3</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td class="meta-cell">May 29, 2026 · 7:30 am</td>
+            <td class="exercise-cell">Bent-over row</td>
+            <td>115</td>
+            <td>3</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td class="meta-cell">May 29, 2026 · 7:22 am</td>
+            <td class="exercise-cell">Overhead press</td>
+            <td>95</td>
+            <td>3</td>
+            <td>5</td>
+          </tr>
+          <tr>
+            <td class="meta-cell">May 28, 2026 · 6:58 am</td>
+            <td class="exercise-cell">Bench press</td>
+            <td>130</td>
+            <td>3</td>
+            <td>8</td>
+          </tr>
+          <tr>
+            <td class="meta-cell">May 28, 2026 · 6:50 am</td>
+            <td class="exercise-cell">Squat</td>
+            <td>170</td>
+            <td>3</td>
+            <td>5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Mock annotation -->
+  <div class="mock-annotation">
+    <strong>State: Populated.</strong> History table shows 8 rows, newest first. Component states covered:
+    <ul>
+      <li>Squat card: success state (just logged, green border + "Logged" badge, inputs retain last values)</li>
+      <li>Bench press card: loading state (inputs disabled, button shows "Saving...")</li>
+      <li>Overhead press card: validation error on Reps field (value 0, inline error message)</li>
+      <li>Deadlift and Bent-over row cards: default idle state</li>
+      <li>First history row: highlighted green to indicate the newly added entry</li>
+    </ul>
+  </div>
+
+</div>
+</body>
+</html>

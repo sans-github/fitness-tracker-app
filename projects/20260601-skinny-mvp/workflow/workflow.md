@@ -332,8 +332,8 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 
 ### Stage 6: Master Baseline Update
 
-- [ ] **PM:** merge this feature's PRD into `projects/master/generated-docs/prd.md`
-- [ ] **DESIGNER:** merge this feature's mocks into `projects/master/mocks/`
+- [x] **PM:** merge this feature's PRD into `projects/master/generated-docs/prd.md` → [prd.md](../../master/generated-docs/prd.md)
+- [x] **DESIGNER:** merge this feature's mocks into `projects/master/mocks/` → [mocks/](../../master/mocks/)
 - [-] 👤💾 **HUMAN:** confirm master is current — SKIPPED (gate skipped at config)
 
 ---
