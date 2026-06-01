@@ -271,8 +271,8 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
   - [x] **BE + FE:** jointly author API Contract (`generated-docs/contracts/api-contract.md`), align on request/response shapes, validation, error format, CORS — done when: file exists with `Status: Draft` and both agents confirmed alignment
   - [x] 💾 **EM:** review and approve API Contract → [api-contract.md](../generated-docs/contracts/api-contract.md) — done when: `Status: Approved — EM` set in file
 
-- [ ] **BE Issues List**
-  - [ ] 💾 **EM:** produce BE Issues List (`generated-docs/architecture/be-issues-list.md`) — done when: `Status: Approved — EM` set in file; BE creates GH issues and begins implementation
+- [x] **BE Issues List**
+  - [x] 💾 **EM:** produce BE Issues List → [be-issues-list.md](../generated-docs/architecture/be-issues-list.md) — done when: `Status: Approved — EM` set in file; BE creates GH issues and begins implementation
 
 - [ ] **Backend Development**
   - [ ] **BE:** create GitHub issues from approved BE Issues List — done when: all issues exist in GitHub with correct labels
