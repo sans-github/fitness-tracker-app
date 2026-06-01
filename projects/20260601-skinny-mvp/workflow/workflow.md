@@ -285,8 +285,8 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
   - [x] **BE:** export OpenAPI spec → [openapi.json](../generated-docs/contracts/openapi.json) 💾
   - [x] **EM:** review BE implementation → [be-review.md](../generated-docs/architecture/be-review.md) — approved; unblocks QA
 
-- [ ] **FE Issues List**
-  - [ ] 💾 **EM:** produce FE Issues List (`generated-docs/architecture/fe-issues-list.md`) — done when: `Status: Approved — EM` set in file; FE creates GH issues and begins implementation
+- [x] **FE Issues List**
+  - [x] 💾 **EM:** produce FE Issues List → [fe-issues-list.md](../generated-docs/architecture/fe-issues-list.md) — done when: `Status: Approved — EM` set in file; FE creates GH issues and begins implementation
 
 - [ ] **Frontend Development**
   - [ ] **FE:** create GitHub issues from approved FE Issues List — done when: all issues exist in GitHub with correct labels
