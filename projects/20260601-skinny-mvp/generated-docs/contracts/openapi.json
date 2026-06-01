@@ -1,0 +1,128 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "OpenAPI definition",
+        "version": "v0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:8080",
+            "description": "Generated server url"
+        }
+    ],
+    "paths": {
+        "/api/v1/workout-logs": {
+            "get": {
+                "tags": [
+                    "workout-log-controller"
+                ],
+                "operationId": "getAll",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/WorkoutLogResponse"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "workout-log-controller"
+                ],
+                "operationId": "create",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/WorkoutLogRequest"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "*/*": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/WorkoutLogResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "WorkoutLogRequest": {
+                "required": [
+                    "exercise",
+                    "reps",
+                    "sets",
+                    "weightLbs"
+                ],
+                "type": "object",
+                "properties": {
+                    "exercise": {
+                        "maxLength": 50,
+                        "minLength": 0,
+                        "type": "string"
+                    },
+                    "weightLbs": {
+                        "minimum": 0.01,
+                        "exclusiveMinimum": false,
+                        "type": "number"
+                    },
+                    "sets": {
+                        "minimum": 1,
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "reps": {
+                        "minimum": 1,
+                        "type": "integer",
+                        "format": "int32"
+                    }
+                }
+            },
+            "WorkoutLogResponse": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "format": "uuid"
+                    },
+                    "exercise": {
+                        "type": "string"
+                    },
+                    "weightLbs": {
+                        "type": "number"
+                    },
+                    "sets": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "reps": {
+                        "type": "integer",
+                        "format": "int32"
+                    },
+                    "createdAt": {
+                        "type": "string",
+                        "format": "date-time"
+                    }
+                }
+            }
+        }
+    }
+}
