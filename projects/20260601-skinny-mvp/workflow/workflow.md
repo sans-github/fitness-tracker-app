@@ -340,8 +340,8 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 
 ### Stage 7: README and CLAUDE.md
 
-- [ ] **EM:** generate `scripts/dev.sh` by inspecting the actual `src/` structure
-- [ ] **EM:** run `/document-release` skill to update `README.md` and `CLAUDE.md`
+- [x] **EM:** generate `scripts/dev.sh` by inspecting the actual `src/` structure → [dev.sh](../../../scripts/dev.sh)
+- [x] **EM:** update `README.md` and `CLAUDE.md` → [README.md](../../../README.md), [CLAUDE.md](../../../CLAUDE.md)
 - [-] 👤💾 **HUMAN:** review and approve README and CLAUDE.md — SKIPPED (gate skipped at config)
 
 ---
