@@ -215,6 +215,138 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 
 ## Progress
 
-<!-- Seeded at kickoff from ## Project phases above. Progressively filled by EM after the implementation plan is approved. The orchestrator works through this top-to-bottom. When it runs out of steps, it stops. -->
-
 [ ]  not started   |   [-]  skipped   |   [x]  done
+
+### Stage 1: Discovery
+
+- [-] **Requirements Finalization** — SKIPPED (PRD provided at feature-init)
+  - [-] **PM:** review PRD with human, surface open questions, confirm scope → [PRD]
+  - [-] 👤💾 **HUMAN:** review and approve PRD
+
+---
+
+### Stage 2: Design
+
+- [ ] **UI / UX Design**
+  - [ ] **DESIGNER:** produce mocks → [Mocks]
+  - [ ] 👤💾 **HUMAN:** review and approve mocks
+
+---
+
+### Stage 3: Technical Planning
+
+- [ ] **Engineering Kickoff**
+  - [ ] **EM:** decide on architecture engagement → [Feature Setup]
+  - [ ] **EM:** create `BACKLOG.md` at project root if it does not exist — done when: file exists with correct section headers
+
+- [ ] **System Architecture** *(skip if no new infrastructure or unfamiliar technology)*
+  - [ ] **ARCH:** produce system architecture → [System Architecture]
+  - [-] 👤💾 **HUMAN:** review and approve system architecture — SKIPPED (gate skipped at config)
+
+- [ ] **High-Level Design**
+  - [ ] **EM:** produce high-level design → [Eng Plans (HLD)]
+  - [-] **EM <> DevOps:** collaboration loop — SKIPPED (deployment target is local)
+  - [-] 👤💾 **HUMAN:** review and approve high-level design — SKIPPED (gate skipped at config)
+
+- [ ] **Implementation Plan**
+  - [ ] **EM:** produce detailed implementation plan → [Implementation Plan]; write Stage 4 and Stage 5 steps to `workflow/implementation-plan.md`; every step must include a done condition
+  - [-] 👤💾 **HUMAN:** review and approve implementation plan — SKIPPED (gate skipped at config)
+  - [ ] **EM:** seed approved steps into Stage 4 and Stage 5 of `## Progress` in this file, replacing the skeleton
+
+---
+
+### Stage 4: Engineering
+> Skeleton — EM fills in these steps during Implementation Planning.
+
+- [ ] **BE Detailed Design**
+  - [ ] **BE:** produce detailed design → [BE Detailed Design] — done when: Status: Approved — EM set in file
+  - [ ] 💾 **EM:** review and approve BE detailed design — done when: Status: Approved — EM set in file
+
+- [ ] **FE Detailed Design**
+  - [ ] **FE:** produce detailed design → [FE Detailed Design] — done when: Status: Approved — EM set in file
+  - [ ] 💾 **EM:** review and approve FE detailed design — done when: Status: Approved — EM set in file
+
+- [-] **Swift Detailed Design** — SKIPPED (no macOS app)
+
+- [ ] **API Contract**
+  - [ ] **BE + FE:** align on API contract → [API Contract]
+  - [ ] 💾 **EM:** review and approve API contract
+
+- [ ] **BE Issues List**
+  - [ ] **EM:** produce and approve BE issues list — done when: Status: Approved — EM set in list; BE creates GH issues and begins implementation
+
+- [ ] **Backend Development**
+  - [ ] **BE:** implement database schema and migration scripts → [DB Schema Files], [DB Migrations]
+  - [ ] 💾 **EM + BE:** review and approve DB schema — done when: Status: Approved — EM set in schema file
+  - [ ] **BE:** implement API endpoints → `src/`
+  - [ ] **BE:** implement logging — done when: `be-logging` checklist fully checked off
+  - [ ] **BE:** write unit and integration tests
+  - [ ] 💾 **EM:** review and approve BE implementation — done when: logging checklist verified; openapi.json exported and committed; `.gitignore` covers all BE stack file types; Status: Approved — EM set in artifact
+  - [ ] **EM:** approve BE artifacts + test docs — done when: Status: Approved noted; unblocks QA automation against BE
+
+- [ ] **FE Issues List**
+  - [ ] **EM:** produce and approve FE issues list — done when: Status: Approved — EM set in list; FE creates GH issues and begins implementation
+
+- [ ] **Frontend Development**
+  - [ ] **FE:** implement UI components per approved mocks → `src/`
+  - [ ] **FE:** integrate with API
+  - [ ] **FE:** implement logging — done when: `fe-logging` checklist fully checked off
+  - [ ] **FE:** write component and end-to-end tests
+  - [ ] 💾 **EM:** review and approve FE implementation — done when: logging checklist verified; `.gitignore` covers all FE stack file types; Status: Approved — EM set in artifact
+  - [ ] **EM:** approve FE artifacts + test docs — done when: Status: Approved noted; unblocks QA automation against FE
+
+- [-] **Swift Engineer Issues List** — SKIPPED (no macOS app)
+
+- [-] **macOS Development** — SKIPPED (no macOS app)
+
+- [ ] **Infrastructure** *(skip if no new infrastructure)*
+  - [ ] **DEVOPS:** produce deployment plan → [Deployment Plan]
+  - [-] 👤💾 **HUMAN:** review and approve deployment plan — SKIPPED (gate skipped at config)
+  - [ ] **DEVOPS:** provision infrastructure per approved architecture → [Infrastructure]
+  - [-] **QA + DEVOPS:** smoke test loop — SKIPPED (deployment target is local)
+  - [ ] 💾 **EM:** review and approve infrastructure — done when: `.gitignore` covers all Terraform file types; Status: Approved — EM set in artifact
+
+---
+
+### Stage 5: Quality Assurance
+> Skeleton — EM fills in these steps during Implementation Planning.
+
+- [ ] **Test Planning**
+  - [ ] **QA:** produce test plan aligned to API contract and implementation → [Test Plan]
+  - [ ] 💾 **EM:** review and approve test plan
+
+- [ ] **QA Issues List**
+  - [ ] **EM:** produce and approve QA issues list — done when: Status: Approved — EM set in list; QA creates GH issues and begins implementation
+
+- [ ] **Test Execution**
+  - [ ] **QA:** implement automated tests against BE
+  - [ ] **QA:** implement automated tests against FE
+  - [-] **QA:** implement automated tests against Swift Engineer output — SKIPPED (no macOS app)
+  - [ ] **QA + BE:** resolve backend test blockers
+  - [ ] **QA + FE:** resolve frontend test blockers
+  - [-] **QA + SWIFT ENGINEER:** resolve macOS test blockers — SKIPPED (no macOS app)
+  - [ ] 💾 **EM:** review and approve test results
+
+---
+
+### Stage 6: Master Baseline Update
+
+- [ ] **PM:** merge this feature's PRD into `projects/master/generated-docs/prd.md`
+- [ ] **DESIGNER:** merge this feature's mocks into `projects/master/mocks/`
+- [-] 👤💾 **HUMAN:** confirm master is current — SKIPPED (gate skipped at config)
+
+---
+
+### Stage 7: README and CLAUDE.md
+
+- [ ] **EM:** generate `scripts/dev.sh` by inspecting the actual `src/` structure
+- [ ] **EM:** run `/document-release` skill to update `README.md` and `CLAUDE.md`
+- [-] 👤💾 **HUMAN:** review and approve README and CLAUDE.md — SKIPPED (gate skipped at config)
+
+---
+
+### Stage 8: Release
+
+- [ ] **Phase Sign-off**
+  - [ ] **EM:** verify all artifacts complete and approved, confirm deployment target is ready
+  - [-] 👤💾 **HUMAN:** review and approve release readiness — SKIPPED (gate skipped at config)
