@@ -235,97 +235,98 @@ Include anything that should inform the `## Progress` tracker -- handwritten not
 
 ### Stage 3: Technical Planning
 
-- [ ] **Engineering Kickoff**
-  - [ ] **EM:** decide on architecture engagement → [Feature Setup]
-  - [ ] **EM:** create `BACKLOG.md` at project root if it does not exist — done when: file exists with correct section headers
+- [x] **Engineering Kickoff**
+  - [x] **EM:** decide on architecture engagement → no Arch engagement needed (standard stack, local deployment)
+  - [x] **EM:** create `BACKLOG.md` at project root if it does not exist — done when: file exists with correct section headers
 
-- [ ] **System Architecture** *(skip if no new infrastructure or unfamiliar technology)*
-  - [ ] **ARCH:** produce system architecture → [System Architecture]
+- [-] **System Architecture** — SKIPPED (standard stack, no new infrastructure or unfamiliar technology)
+  - [-] **ARCH:** produce system architecture → [System Architecture]
   - [-] 👤💾 **HUMAN:** review and approve system architecture — SKIPPED (gate skipped at config)
 
-- [ ] **High-Level Design**
-  - [ ] **EM:** produce high-level design → [Eng Plans (HLD)]
+- [x] **High-Level Design**
+  - [x] **EM:** produce high-level design → [architecture/hld.md](../generated-docs/architecture/hld.md)
   - [-] **EM <> DevOps:** collaboration loop — SKIPPED (deployment target is local)
   - [-] 👤💾 **HUMAN:** review and approve high-level design — SKIPPED (gate skipped at config)
 
-- [ ] **Implementation Plan**
-  - [ ] **EM:** produce detailed implementation plan → [Implementation Plan]; write Stage 4 and Stage 5 steps to `workflow/implementation-plan.md`; every step must include a done condition
+- [x] **Implementation Plan**
+  - [x] **EM:** produce detailed implementation plan → [implementation-plan.md](implementation-plan.md)
   - [-] 👤💾 **HUMAN:** review and approve implementation plan — SKIPPED (gate skipped at config)
-  - [ ] **EM:** seed approved steps into Stage 4 and Stage 5 of `## Progress` in this file, replacing the skeleton
+  - [x] **EM:** seed approved steps into Stage 4 and Stage 5 of `## Progress` in this file, replacing the skeleton
 
 ---
 
 ### Stage 4: Engineering
-> Skeleton — EM fills in these steps during Implementation Planning.
 
 - [ ] **BE Detailed Design**
-  - [ ] **BE:** produce detailed design → [BE Detailed Design] — done when: Status: Approved — EM set in file
-  - [ ] 💾 **EM:** review and approve BE detailed design — done when: Status: Approved — EM set in file
+  - [ ] **BE:** author BE Detailed Design (`generated-docs/architecture/be-detailed-design.md`) — done when: file exists with `Status: Draft` header
+  - [ ] 💾 **EM:** review and approve BE Detailed Design — done when: `Status: Approved — EM` set in file
 
 - [ ] **FE Detailed Design**
-  - [ ] **FE:** produce detailed design → [FE Detailed Design] — done when: Status: Approved — EM set in file
-  - [ ] 💾 **EM:** review and approve FE detailed design — done when: Status: Approved — EM set in file
+  - [ ] **FE:** author FE Detailed Design (`generated-docs/architecture/fe-detailed-design.md`) — done when: file exists with `Status: Draft` header
+  - [ ] 💾 **EM:** review and approve FE Detailed Design — done when: `Status: Approved — EM` set in file
 
 - [-] **Swift Detailed Design** — SKIPPED (no macOS app)
 
 - [ ] **API Contract**
-  - [ ] **BE + FE:** align on API contract → [API Contract]
-  - [ ] 💾 **EM:** review and approve API contract
+  - [ ] **BE + FE:** jointly author API Contract (`generated-docs/contracts/api-contract.md`), align on request/response shapes, validation, error format, CORS — done when: file exists with `Status: Draft` and both agents confirmed alignment
+  - [ ] 💾 **EM:** review and approve API Contract — done when: `Status: Approved — EM` set in file
 
 - [ ] **BE Issues List**
-  - [ ] **EM:** produce and approve BE issues list — done when: Status: Approved — EM set in list; BE creates GH issues and begins implementation
+  - [ ] 💾 **EM:** produce BE Issues List (`generated-docs/architecture/be-issues-list.md`) — done when: `Status: Approved — EM` set in file; BE creates GH issues and begins implementation
 
 - [ ] **Backend Development**
-  - [ ] **BE:** implement database schema and migration scripts → [DB Schema Files], [DB Migrations]
-  - [ ] 💾 **EM + BE:** review and approve DB schema — done when: Status: Approved — EM set in schema file
-  - [ ] **BE:** implement API endpoints → `src/`
-  - [ ] **BE:** implement logging — done when: `be-logging` checklist fully checked off
-  - [ ] **BE:** write unit and integration tests
-  - [ ] 💾 **EM:** review and approve BE implementation — done when: logging checklist verified; openapi.json exported and committed; `.gitignore` covers all BE stack file types; Status: Approved — EM set in artifact
-  - [ ] **EM:** approve BE artifacts + test docs — done when: Status: Approved noted; unblocks QA automation against BE
+  - [ ] **BE:** create GitHub issues from approved BE Issues List — done when: all issues exist in GitHub with correct labels
+  - [ ] **BE:** implement DB schema: `src/db/schema/01_workout_log.sql` (Flyway), `src/db/er-diagram.md` (Mermaid), baseline `.gitignore` — done when: schema and ER diagram exist; `mvn flyway:info` detects script 💾
+  - [ ] **BE:** scaffold Maven project: `pom.xml`, `application.properties` — done when: `mvn verify` exits 0 💾
+  - [ ] **BE:** implement entity, DTOs, repository, service, controller — done when: all files exist and `mvn compile` exits 0
+  - [ ] **BE:** implement `GlobalExceptionHandler` (400 validation, 500 fallback) — done when: `mvn compile` exits 0
+  - [ ] **BE:** implement structured JSON logging per `be-logging` conventions — done when: `be-logging` checklist fully confirmed
+  - [ ] **BE:** implement unit tests (Mockito service, `@WebMvcTest` controller) and integration tests (`@SpringBootTest` H2) — done when: `mvn verify` exits 0, JaCoCo 100% line coverage, no Checkstyle violations 💾
+  - [ ] **BE:** export OpenAPI spec to `generated-docs/contracts/openapi.json` — done when: file exists and is valid JSON 💾
+  - [ ] **EM:** review BE implementation — done when: EM confirms `.gitignore`, ER diagram, schema, API Contract alignment, logging, test coverage clean; unblocks QA
 
 - [ ] **FE Issues List**
-  - [ ] **EM:** produce and approve FE issues list — done when: Status: Approved — EM set in list; FE creates GH issues and begins implementation
+  - [ ] 💾 **EM:** produce FE Issues List (`generated-docs/architecture/fe-issues-list.md`) — done when: `Status: Approved — EM` set in file; FE creates GH issues and begins implementation
 
 - [ ] **Frontend Development**
-  - [ ] **FE:** implement UI components per approved mocks → `src/`
-  - [ ] **FE:** integrate with API
-  - [ ] **FE:** implement logging — done when: `fe-logging` checklist fully checked off
-  - [ ] **FE:** write component and end-to-end tests
-  - [ ] 💾 **EM:** review and approve FE implementation — done when: logging checklist verified; `.gitignore` covers all FE stack file types; Status: Approved — EM set in artifact
-  - [ ] **EM:** approve FE artifacts + test docs — done when: Status: Approved noted; unblocks QA automation against FE
+  - [ ] **FE:** create GitHub issues from approved FE Issues List — done when: all issues exist in GitHub with correct labels
+  - [ ] **FE:** scaffold Vite + React + TypeScript project: `package.json`, `tsconfig.json`, `vite.config.ts` (proxy), ESLint + Prettier, `.gitignore` — done when: `npm run build` exits 0 💾
+  - [ ] **FE:** implement TanStack Query provider, logger module, `generateTraceId`, typed API hooks (`useWorkoutLogs`, `useLogWorkout`) with `X-Trace-Id` — done when: `npm run build` exits 0
+  - [ ] **FE:** implement UI components: `ExerciseCard`, `ExerciseGrid`, `HistoryTable`, `WorkoutPage` — done when: all files exist and `npm run build` exits 0
+  - [ ] **FE:** implement structured logging per `fe-logging` conventions — done when: `fe-logging` checklist fully confirmed
+  - [ ] **FE:** implement component tests and Playwright E2E tests covering AC-1 and AC-2 — done when: `npm test` and `npx playwright test` both exit 0 💾
+  - [ ] **EM:** review FE implementation — done when: EM confirms `.gitignore`, component placement, API Contract alignment, logging coverage, test coverage clean; unblocks QA
 
 - [-] **Swift Engineer Issues List** — SKIPPED (no macOS app)
 
 - [-] **macOS Development** — SKIPPED (no macOS app)
 
-- [ ] **Infrastructure** *(skip if no new infrastructure)*
-  - [ ] **DEVOPS:** produce deployment plan → [Deployment Plan]
+- [ ] **Local Run Guide**
+  - [ ] 💾 **BE:** produce `generated-docs/ops/local-run-guide.md` — done when: file exists covering prerequisites, start commands, expected URLs, H2 data file location, DB reset steps
+
+- [ ] **Infrastructure** *(local only — no provisioning)*
   - [-] 👤💾 **HUMAN:** review and approve deployment plan — SKIPPED (gate skipped at config)
-  - [ ] **DEVOPS:** provision infrastructure per approved architecture → [Infrastructure]
   - [-] **QA + DEVOPS:** smoke test loop — SKIPPED (deployment target is local)
-  - [ ] 💾 **EM:** review and approve infrastructure — done when: `.gitignore` covers all Terraform file types; Status: Approved — EM set in artifact
 
 ---
 
 ### Stage 5: Quality Assurance
-> Skeleton — EM fills in these steps during Implementation Planning.
 
 - [ ] **Test Planning**
-  - [ ] **QA:** produce test plan aligned to API contract and implementation → [Test Plan]
-  - [ ] 💾 **EM:** review and approve test plan
+  - [ ] **QA:** author Test Plan (`generated-docs/qa/test-plan.md`) covering scope (AC-1, AC-2), risk summary, tool choices, environment requirements, test data strategy, pass/fail criteria — done when: file exists with `Status: Draft` header
+  - [ ] 💾 **EM:** review and approve Test Plan — done when: `Status: Approved — EM` set in file
 
 - [ ] **QA Issues List**
-  - [ ] **EM:** produce and approve QA issues list — done when: Status: Approved — EM set in list; QA creates GH issues and begins implementation
+  - [ ] 💾 **EM:** produce QA Issues List (`generated-docs/qa/qa-issues-list.md`) covering AC-1 E2E, AC-2 E2E, API-level tests, negative cases — done when: `Status: Approved — EM` set in file; QA creates GH issues and begins implementation
 
 - [ ] **Test Execution**
-  - [ ] **QA:** implement automated tests against BE
-  - [ ] **QA:** implement automated tests against FE
+  - [ ] **QA:** create GitHub issues from approved QA Issues List — done when: all issues exist in GitHub with correct labels
+  - [ ] **QA:** implement Playwright automation suite (API-level + E2E) covering all items in QA Issues List — done when: `npx playwright test` exits 0 against locally running BE and FE
+  - [ ] **QA + BE:** resolve backend test blockers — done when: no open QA-blocking BE issues remain
+  - [ ] **QA + FE:** resolve frontend test blockers — done when: no open QA-blocking FE issues remain
   - [-] **QA:** implement automated tests against Swift Engineer output — SKIPPED (no macOS app)
-  - [ ] **QA + BE:** resolve backend test blockers
-  - [ ] **QA + FE:** resolve frontend test blockers
   - [-] **QA + SWIFT ENGINEER:** resolve macOS test blockers — SKIPPED (no macOS app)
-  - [ ] 💾 **EM:** review and approve test results
+  - [ ] 💾 **EM:** review and approve test results — done when: all ACs covered, no skipped tests without documented reason, `Status: Approved — EM` appended to test-plan.md results section
 
 ---
 
