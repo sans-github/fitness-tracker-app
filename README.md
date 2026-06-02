@@ -1,3 +1,14 @@
+<div align="center">
+
+[![Proof of Concept](https://img.shields.io/badge/Proof%20of%20Concept-claude--delivery--team-0d9488?style=for-the-badge)](https://github.com/sans-github/claude-delivery-team)
+
+Built with **[claude-delivery-team](https://github.com/sans-github/claude-delivery-team)** — a library that drives Claude agents to collaboratively build software end-to-end.<br>
+Not intended for general use. The fitness tracker app is purely the vehicle for demonstrating the library.
+
+</div>
+
+---
+
 # Fitness Tracker
 
 Single-page web app for logging strength training sets and viewing workout history. One person, five hardcoded exercises, no authentication.
