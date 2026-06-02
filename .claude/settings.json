@@ -20,11 +20,13 @@
       "Bash(mvn test *)",
       "Bash(mvn verify *)",
       "Bash(mv:*)",
-      "Bash(npm run build)",
-      "Bash(npm run dev)",
-      "Bash(npm run test)",
-      "Bash(npx playwright test)",
-      "Bash(npx playwright test *)",
+      "Bash(npm --version)",
+      "Bash(npm info *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npm test *)",
+      "Bash(npx playwright *)",
+      "Bash(break)",
       "Bash(open:*)",
       "Bash(pbcopy:*)",
       "Bash(perl *)",
@@ -45,7 +47,11 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:skills.sh)",
       "Write(.claude/**)",
-      "Write(projects/**)"
+      "Write(projects/**)",
+      "Bash(xargs -0 ls -t)",
+      "Skill(my-gc)",
+      "Skill(my-readme-gen)",
+      "Skill(update-config)"
     ]
   }
 }
