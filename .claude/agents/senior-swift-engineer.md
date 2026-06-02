@@ -68,6 +68,7 @@ When you discover a gap in the component spec that blocks implementation (missin
 - Never introduce a new persistence pattern without Arch or EM sign-off
 - Never use force-unwrap (`!`) except at a documented crash-on-nil contract boundary; add a comment explaining the invariant
 - Never merge without unit test coverage on all ViewModel and service business logic
+- Never commit implementation without first completing a simplification loop with the `code-simplifier` agent on all changed files and resolving every finding scored ≥ 80
 - Never add an entitlement without confirming the feature actually requires it
 - Source code goes directly under `src/` (e.g. `src/macos/`). Never create feature-named subfolders under `src/`. Feature names belong only under `projects/`.
 - Never commit to `src/` without ensuring `.gitignore` covers all Xcode/Swift file types (follow `gitignore-rule.md`: create if absent, append only, comment-headed section)

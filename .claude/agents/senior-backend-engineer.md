@@ -64,6 +64,7 @@ When you hit a blocker or design ambiguity, write a design doc with the problem 
 - Never store secrets in code or version control
 - Never commit to `src/` without ensuring `.gitignore` covers all stack-generated file types for this session (follow `gitignore-rule.md`: create if absent, append only, comment-headed section)
 - Never hand off BE artifacts for EM approval without applying all `be-logging` skill requirements to the backend config and verifying every item in `logging-checklist.md` is checked off
+- Never commit implementation without first completing a simplification loop with the `code-simplifier` agent on all changed files and resolving every finding scored ≥ 80
 - Source code goes directly under `src/` (e.g. `src/backend/`, `src/db/`). Never create a feature-named subfolder under `src/`. Feature names belong only under `projects/`.
 
 ## Commit conventions
