@@ -1,8 +1,8 @@
 <div align="center">
 
-[![Proof of Concept](https://img.shields.io/badge/Proof%20of%20Concept-claude--delivery--team-0d9488?style=for-the-badge)](https://github.com/sans-github/claude-delivery-team)
+[![Proof of Concept](https://img.shields.io/badge/Proof%20of%20Concept-agentic--delivery--framework-0d9488?style=for-the-badge)](https://github.com/sans-github/agentic-delivery-framework)
 
-Built with **[claude-delivery-team](https://github.com/sans-github/claude-delivery-team)** — a library that drives Claude agents to collaboratively build software end-to-end.<br>
+Built with **[agentic-delivery-framework](https://github.com/sans-github/agentic-delivery-framework)** — a library that drives Claude agents to collaboratively build software end-to-end.<br>
 Not intended for general use. The fitness tracker app is purely the vehicle for demonstrating the library.
 
 </div>

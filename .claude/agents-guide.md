@@ -25,13 +25,13 @@ They collaborate the way a real team does. At every pivotal moment (PRD, mocks, 
 From your project root:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/sans-github/claude-delivery-team/main/install.sh)
+bash <(curl -fsSL https://raw.githubusercontent.com/sans-github/agentic-delivery-framework/main/install.sh)
 ```
 
 To pin a specific version:
 
 ```bash
-bash <(curl -fsSL https://raw.githubusercontent.com/sans-github/claude-delivery-team/main/install.sh) v1.2.0
+bash <(curl -fsSL https://raw.githubusercontent.com/sans-github/agentic-delivery-framework/main/install.sh) v1.2.0
 ```
 
 This does the following:
